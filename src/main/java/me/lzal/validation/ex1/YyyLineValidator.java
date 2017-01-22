@@ -10,7 +10,7 @@ import me.lzal.validation.ex1.exceptions.IncorrectZipCodeFormatException;
 
 import java.util.regex.Pattern;
 
-class Validator {
+class YyyLineValidator {
 
     public static final String DELIMITER = "|";
 

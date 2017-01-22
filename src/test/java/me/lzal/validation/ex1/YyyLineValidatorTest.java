@@ -1,9 +1,8 @@
 package me.lzal.validation.ex1;
 
-import static me.lzal.validation.ex1.Validator.DELIMITER;
+import static me.lzal.validation.ex1.YyyLineValidator.DELIMITER;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import me.lzal.validation.ex1.Validator;
 import me.lzal.validation.ex1.exceptions.EmptyFieldException;
 import me.lzal.validation.ex1.exceptions.ExpectingNumericalFieldException;
 import me.lzal.validation.ex1.exceptions.IncorrectFormatException;
@@ -13,7 +12,7 @@ import org.junit.Test;
 
 import java.util.StringJoiner;
 
-public class ValidatorTest {
+public class YyyLineValidatorTest {
 
     @Test
     public void shouldPassTheLine() throws Exception {
@@ -21,7 +20,7 @@ public class ValidatorTest {
             .add("John").add("Smith").add("23").add("43-603")
             .toString();
 
-        new Validator().validate(line);
+        new YyyLineValidator().validate(line);
     }
 
     @Test
@@ -30,7 +29,7 @@ public class ValidatorTest {
             .add("John").add("Smith").add("23").add("43-603").add(DELIMITER)
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(IncorrectFormatException.class);
     }
 
@@ -40,7 +39,7 @@ public class ValidatorTest {
             .add(DELIMITER).add("John").add("Smith").add("23").add("43-603")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(IncorrectFormatException.class);
     }
 
@@ -50,7 +49,7 @@ public class ValidatorTest {
             .add("John").add("Smith").add("43-603")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(IncorrectNumberOfFieldsException.class);
     }
 
@@ -60,7 +59,7 @@ public class ValidatorTest {
             .add("John").add("Smith").add("23").add("43-603").add("DSA")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(IncorrectNumberOfFieldsException.class);
     }
 
@@ -70,7 +69,7 @@ public class ValidatorTest {
             .add("John").add("Smith").add("23X").add("43-603")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(ExpectingNumericalFieldException.class);
     }
 
@@ -80,7 +79,7 @@ public class ValidatorTest {
             .add("John").add("Smith").add("23").add("423-63")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(IncorrectZipCodeFormatException.class);
     }
 
@@ -90,7 +89,7 @@ public class ValidatorTest {
             .add("").add("Smith").add("23").add("42-630")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
 
     }
@@ -101,7 +100,7 @@ public class ValidatorTest {
             .add(" ").add("Smith").add("23").add("42-630")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
 
     }
@@ -112,7 +111,7 @@ public class ValidatorTest {
             .add("John").add("").add("23").add("42-630")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
 
     }
@@ -123,7 +122,7 @@ public class ValidatorTest {
             .add("John").add(" ").add("23").add("42-630")
             .toString();
 
-        assertThatThrownBy(() -> new Validator().validate(line))
+        assertThatThrownBy(() -> new YyyLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
 
     }
