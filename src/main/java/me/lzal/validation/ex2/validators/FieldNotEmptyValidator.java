@@ -16,7 +16,7 @@ public class FieldNotEmptyValidator implements Validator<Line> {
     @Override
     public Try<Line> validate(Line line) {
         return Try.of(() -> {
-            String field = line.getField(fieldIndex);
+            Line.Field field = line.getField(fieldIndex);
             if (field.trim().isEmpty()) {
                 throw new EmptyFieldException();
             }

@@ -1,5 +1,9 @@
 package me.lzal.validation.ex2;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Line {
 
     private final String line;
@@ -17,16 +21,38 @@ public class Line {
     }
 
     public int fieldsSize() {
-        String[] split = getFields();
-        return split.length;
+        return getFields().size();
     }
 
-    private String[] getFields() {
+    private List<Field> getFields() {
         String substring = line.substring(1, line.length() - 1);
-        return substring.split("\\" + XxxLineValidator.DELIMITER);
+        return Arrays.stream(substring.split("\\" + XxxLineValidator.DELIMITER))
+            .map(Field::new)
+            .collect(Collectors.toList());
     }
 
-    public String getField(int fieldIndex) {
-        return getFields()[fieldIndex];
+    public Field getField(int fieldIndex) {
+        return getFields().get(fieldIndex);
+    }
+
+    public class Field {
+
+        private final String text;
+
+        public Field(String s) {
+            this.text = s;
+        }
+
+        public Field trim() {
+            return new Field(text.trim());
+        }
+
+        public boolean isEmpty() {
+            return text.isEmpty();
+        }
+
+        public String getText() {
+            return text;
+        }
     }
 }

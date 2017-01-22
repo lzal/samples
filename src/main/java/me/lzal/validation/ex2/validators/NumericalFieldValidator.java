@@ -19,7 +19,7 @@ public class NumericalFieldValidator implements Validator<Line> {
     public Try<Line> validate(Line line) {
         return Try.of(() -> {
             try {
-                parseInt(line.getField(fieldIndex));
+                parseInt(line.getField(fieldIndex).getText());
             } catch (NumberFormatException e) {
                 throw new ExpectingNumericalFieldException();
             }

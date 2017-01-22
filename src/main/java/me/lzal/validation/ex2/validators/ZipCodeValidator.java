@@ -22,7 +22,7 @@ public class ZipCodeValidator implements Validator<Line> {
     @Override
     public Try<Line> validate(Line line) {
         return Try.of(() -> {
-            if (!zipCodePattern.test(line.getField(fieldIndex))) {
+            if (!zipCodePattern.test(line.getField(fieldIndex).getText())) {
                 throw new IncorrectZipCodeFormatException();
             }
             return line;

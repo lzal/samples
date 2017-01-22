@@ -91,7 +91,6 @@ public class XxxLineValidatorTest {
 
         assertThatThrownBy(() -> new XxxLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
-
     }
 
     @Test
@@ -102,7 +101,6 @@ public class XxxLineValidatorTest {
 
         assertThatThrownBy(() -> new XxxLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
-
     }
 
     @Test
@@ -113,7 +111,6 @@ public class XxxLineValidatorTest {
 
         assertThatThrownBy(() -> new XxxLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
-
     }
 
     @Test
@@ -124,6 +121,5 @@ public class XxxLineValidatorTest {
 
         assertThatThrownBy(() -> new XxxLineValidator().validate(line))
             .isInstanceOf(EmptyFieldException.class);
-
     }
 }
