@@ -1,13 +1,14 @@
-package me.lzal.validation;
+package me.lzal.validation.ex1;
 
-import static me.lzal.validation.Validator.DELIMITER;
+import static me.lzal.validation.ex1.Validator.DELIMITER;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import me.lzal.validation.exceptions.EmptyFieldException;
-import me.lzal.validation.exceptions.ExpectingNumericalFieldException;
-import me.lzal.validation.exceptions.IncorrectFormatException;
-import me.lzal.validation.exceptions.IncorrectNumberOfFieldsException;
-import me.lzal.validation.exceptions.IncorrectZipCodeFormatException;
+import me.lzal.validation.ex1.Validator;
+import me.lzal.validation.ex1.exceptions.EmptyFieldException;
+import me.lzal.validation.ex1.exceptions.ExpectingNumericalFieldException;
+import me.lzal.validation.ex1.exceptions.IncorrectFormatException;
+import me.lzal.validation.ex1.exceptions.IncorrectNumberOfFieldsException;
+import me.lzal.validation.ex1.exceptions.IncorrectZipCodeFormatException;
 import org.junit.Test;
 
 import java.util.StringJoiner;

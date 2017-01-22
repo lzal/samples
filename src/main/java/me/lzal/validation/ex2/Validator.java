@@ -1,16 +1,16 @@
-package me.lzal.validation;
+package me.lzal.validation.ex2;
 
 import static java.lang.Integer.parseInt;
 
-import me.lzal.validation.exceptions.EmptyFieldException;
-import me.lzal.validation.exceptions.ExpectingNumericalFieldException;
-import me.lzal.validation.exceptions.IncorrectFormatException;
-import me.lzal.validation.exceptions.IncorrectNumberOfFieldsException;
-import me.lzal.validation.exceptions.IncorrectZipCodeFormatException;
+import me.lzal.validation.ex1.exceptions.EmptyFieldException;
+import me.lzal.validation.ex1.exceptions.ExpectingNumericalFieldException;
+import me.lzal.validation.ex1.exceptions.IncorrectFormatException;
+import me.lzal.validation.ex1.exceptions.IncorrectNumberOfFieldsException;
+import me.lzal.validation.ex1.exceptions.IncorrectZipCodeFormatException;
 
 import java.util.regex.Pattern;
 
-public class Validator {
+class Validator {
 
     public static final String DELIMITER = "|";
 
